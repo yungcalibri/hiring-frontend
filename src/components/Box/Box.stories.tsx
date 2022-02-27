@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Description, Props, Title } from "@storybook/addon-docs/blocks";
-
 import { Box } from "./Box";
 import { Text } from "..";
 
