@@ -9,29 +9,19 @@ export default {
   title: "Components/Box",
   component: Box,
   parameters: {
-    // Flesh out docs
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            Building block of layouts. Creates a box-model context
-          </Description>
-          <Props of={Box} />
-        </>
-      ),
+      description: {
+        component:
+          "The Box has an extremely simple remit: It provides a border and some padding to its children.",
+      },
     },
   },
 };
 
-export const Basic = (args: any) => <Box {...args} />;
-
-export const Primary = () => (
-  <Box bg="text.primary" p={3} mb={4}>
-    <Text variant="body" color="text.inverse">
-      This is a box
-    </Text>
+export const Basic = (args: any) => (
+  <Box {...args}>
+    <Text>This is a default box</Text>
   </Box>
 );
 
-export const Sizing = () => <Box bg="brand.accent" width={5} height={5}></Box>;
+Basic.args = Box.defaultProps;
