@@ -7,7 +7,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6008"
+    "storybook": "start-storybook --no-open -p 6008",
+    "storybook-open": "start-storybook -p 6008"
   },
   "dependencies": {
     "@tlon/sigil-js": "^1.4.5",
