@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   compose,
   space,
@@ -13,7 +13,7 @@ import {
   FlexboxProps,
   BorderProps,
   PositionProps,
-} from 'styled-system';
+} from "styled-system";
 
 export type BoxProps = SpaceProps &
   ColorProps &
@@ -24,8 +24,8 @@ export type BoxProps = SpaceProps &
 
 export const Box: any = styled.div<BoxProps>(
   {
-    display: 'inline-flex',
-    boxSizing: 'border-box',
+    display: "inline-flex",
+    boxSizing: "border-box",
     minWidth: 0,
   },
   compose(space, color, layout, flexbox, border, position)

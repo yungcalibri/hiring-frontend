@@ -1,1 +1,1 @@
-export * from './Sigil';
+export * from "./Sigil";
