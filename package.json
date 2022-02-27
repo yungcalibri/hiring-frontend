@@ -3,6 +3,7 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
+    "pretty": "prettier --write ./src",
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
