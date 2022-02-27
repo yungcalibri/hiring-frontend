@@ -18,19 +18,19 @@ export default {
           </Description>
           <Props of={Home} />
         </>
-      )
+      ),
     },
   },
-}
+};
 
 const guys = ["Larry", "Curly", "Moe"];
 
 export const Basic = () => (
   <Home>
-    {guys.map(name => (
-      <p style={{border: "1px solid red", marginBottom: "1em"}} key={name}>
+    {guys.map((name) => (
+      <p style={{ border: "1px solid red", marginBottom: "1em" }} key={name}>
         {name}
       </p>
     ))}
   </Home>
-)
+);

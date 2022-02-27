@@ -1,4 +1,3 @@
-
 export const alphabet = [
   "Alpha",
   "Bravo",
@@ -25,6 +24,5 @@ export const alphabet = [
   "Whiskey",
   "Xray",
   "Yankee",
-  "Zulu"
+  "Zulu",
 ];
-
