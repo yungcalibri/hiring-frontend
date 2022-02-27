@@ -4,6 +4,7 @@ import styled from "styled-components";
 type HomeProps = {};
 
 const HomeRoot = styled.div`
+  width: 100%;
   min-height: 80vh;
   display: grid;
   grid-gap: 1ch;
