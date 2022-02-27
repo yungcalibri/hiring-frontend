@@ -12,7 +12,10 @@ module.exports = {
     // return the customized config
     return config;
   },
-  stories: ["../src/components/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/components/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/layouts/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-docs",
