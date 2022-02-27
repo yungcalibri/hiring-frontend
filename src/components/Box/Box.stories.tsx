@@ -4,7 +4,7 @@ import { Box } from "./Box";
 import { Text } from "..";
 
 export default {
-  title: "Components/Box",
+  title: "Primitives/Box",
   component: Box,
   parameters: {
     docs: {
