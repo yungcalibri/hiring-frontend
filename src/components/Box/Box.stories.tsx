@@ -10,7 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          "The Box has an extremely simple remit: It provides a border and some padding to its children.",
+          "The Box has one extremely simple remit: Visually separating some element of the page from another. It provides a border, some padding, and possibly a background for its children. It makes no decisions about the size, position, or layout of the children themselves: that responsibility belongs to the context in which the Box appears.",
       },
     },
   },
