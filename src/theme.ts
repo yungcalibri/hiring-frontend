@@ -181,10 +181,10 @@ export const theme = {
           caution: "#FFBC32",
           alert: "#F93939",
         },
-        borderColor: "rgba(0, 0, 0, 0.1)",
+        borderColor: "rgba(256, 256, 256, 0.2)",
         input: {
-          borderColor: "rgba(0, 0, 0, 0.1)",
-          borderHover: "rgba(0, 0, 0, 0.2)",
+          borderColor: "rgba(256, 256, 256, 0.2)",
+          borderHover: "rgba(256, 256, 256, 0.4)",
         },
       },
       os: {
