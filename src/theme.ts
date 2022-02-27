@@ -68,10 +68,10 @@ export const elevations = {
   three: "0px 0px 9px rgba(0, 0, 0, 0.18)",
 };
 
-export const containers = {
-  rounderBorderRadius: 9,
-  outerBorderRadius: 6,
-  innerBorderRadius: 3,
+export const radii = {
+  large: 9,
+  medium: 6,
+  small: 3,
 };
 
 // TODO restructure to generate type in an elegant way
@@ -90,7 +90,7 @@ export const theme = {
     transition,
     transitionFast,
     input,
-    containers,
+    radii,
     colors: {
       brand: {
         primary: "#4E9EFD",
@@ -161,7 +161,7 @@ export const theme = {
     transition,
     transitionFast,
     input,
-    containers,
+    radii,
     colors: {
       brand: {
         primary: "#4E9EFD",
