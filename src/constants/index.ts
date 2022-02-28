@@ -27,4 +27,4 @@ export const alphabet = [
   "Zulu",
 ];
 
-export { smad64 } from "./image";
+export * from "./image";
