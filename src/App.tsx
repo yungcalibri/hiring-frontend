@@ -20,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
     --fast-transition: ${(props) => props.theme.transitionFast || "0.05s ease"};
     --ftx: var(--fast-transition);
 
+    --hover-drop-shadow: drop-shadow(0.5ch 0.5ch 0.25ch var(--border-hover-color));
+    --active-drop-shadow: drop-shadow(0.25ch 0.25ch 0.125ch var(--border-hover-color));
+
     --border-color: ${(props) =>
       props.theme.colors.ui.borderColor || "currentColor"};
     --border-hover-color: ${(props) =>
@@ -41,10 +44,10 @@ const GlobalStyle = createGlobalStyle`
     transition: var(--dtx);
 
     &:hover {
-      filter: drop-shadow(0.5ch 0.5ch 0.25ch var(--border-hover-color));
+      filter: var(--hover-drop-shadow);
     }
     &:active {
-      filter: drop-shadow(0.25ch 0.25ch 0.125ch var(--border-hover-color)) brightness(95%);
+      filter: var(--active-drop-shadow) brightness(95%);
     }
   }
 `;
