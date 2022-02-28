@@ -69,9 +69,9 @@ export const elevations = {
 };
 
 export const radii = {
-  large: 9,
-  medium: 6,
-  small: 3,
+  large: "0.5rem",
+  medium: "0.25rem",
+  small: "0.125rem",
 };
 
 // TODO restructure to generate type in an elegant way

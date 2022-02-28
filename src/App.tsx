@@ -27,8 +27,12 @@ const GlobalStyle = createGlobalStyle`
       props.theme.colors.ui.borderColor || "currentColor"};
     --border-hover-color: ${(props) =>
       props.theme.colors.bg.divider || "currentColor"};
-    --border-width: ${(props) => props?.borderWidths?.[0] || "0.125ch"};
-    --border-radius: ${(props) => props?.borderRadii?.[0] || "0.25ch"};
+    --border-width: ${(props) => props?.borderWidths?.[0] || "0.125rem"};
+    ${(props) =>
+      Object.entries(props.theme.radii)
+        .map(([k, v]) => `--border-radius-${k}: ${v}`)
+        .join(";")}
+    --border-radius: var(--border-radius-small, 0.25ch);
   }
 
   body {
