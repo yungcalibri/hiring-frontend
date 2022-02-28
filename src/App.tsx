@@ -49,6 +49,11 @@ const GlobalStyle = createGlobalStyle`
     &:active {
       filter: var(--active-drop-shadow) brightness(95%);
     }
+
+    &.transparent {
+      --button-background: transparent;
+      --border-width: 0.25ch;
+    }
   }
 `;
 
@@ -60,7 +65,10 @@ export const App: FC<AppProps> = () => {
         <Box>
           <Text>Let's put the posts here.</Text>
         </Box>
-        <button type="button" onClick={() => console.log("click")}>
+        <button
+          type="button"
+          className="transparent"
+          onClick={() => console.log("click")}>
           click meeeeee
         </button>
       </Home>
