@@ -1,22 +1,18 @@
 import styled from "styled-components";
-import {
-  SpaceProps,
-  ColorProps,
-  LayoutProps,
-  FlexboxProps,
-  BorderProps,
-  PositionProps,
-} from "styled-system";
+import { flexbox, FlexboxProps } from "styled-system";
 import { Box } from "../Box";
 
-export type FlexProps = SpaceProps &
-  ColorProps &
-  LayoutProps &
-  FlexboxProps &
-  BorderProps &
-  PositionProps & { gap?: number };
+export type FlexProps = FlexboxProps & { gap?: number };
 
-export const Flex: any = styled(Box)<FlexProps>({
-  display: "flex",
-  // TODO add gap props or research and document usages
-});
+export const Flex: any = styled(Box)<FlexProps>(
+  {
+    display: "flex",
+    gap: (props) => props.gap,
+    // TODO add gap props or research and document usages
+  },
+  flexbox
+);
+
+Flex.defaultProps = {
+  gap: "1rem",
+};
