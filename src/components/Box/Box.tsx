@@ -11,7 +11,10 @@ import {
 
 export type BoxProps = SpaceProps & ColorProps & BorderProps;
 
-export const Box: any = styled.div<BoxProps>(compose(space, color, border));
+export const Box: any = styled.div<BoxProps>(
+  { overflow: "hidden" },
+  compose(space, color, border)
+);
 
 Box.defaultProps = {
   borderColor: "ui.borderColor",
