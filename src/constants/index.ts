@@ -26,3 +26,5 @@ export const alphabet = [
   "Yankee",
   "Zulu",
 ];
+
+export { smad64 } from "./image";
