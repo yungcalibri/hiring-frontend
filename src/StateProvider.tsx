@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { diglett64, smad64, teapot64 } from "./constants";
 import { makePatp } from "./utilities";
 
@@ -12,7 +12,7 @@ const loadPosts = async (page) => {
 
   // construct query url
   const queryParams = new URLSearchParams({
-    quantity: "3",
+    quantity: "5",
     // use the page number as a random seed to get consistent results
     seed: page,
     hasImage: "boolean",
@@ -21,6 +21,8 @@ const loadPosts = async (page) => {
     minutesSincePosted: "number",
     content: "text",
     id: "uuid",
+    // user 'already liked' this post
+    liked: "boolean",
 
     // syllables of the poster's @p
     syl3: "number",
@@ -66,6 +68,7 @@ const AppContext = React.createContext({
   posts: new Map(),
   postOrder: [],
   likes: new Set(),
+  toggleLike: noop,
   loadPosts: noop,
   loadingPosts: true,
 });
@@ -76,6 +79,7 @@ export const StateProvider = (props: any) => {
     posts: new Map(),
     postOrder: [],
     likes: new Set(),
+    toggleLike: noop,
     loadPosts,
     loadingPosts: true,
   });
@@ -105,6 +109,20 @@ export const StateProvider = (props: any) => {
     return () => {
       waiting = false;
     };
+  }, []);
+
+  const toggleLike = useCallback((postId) => {
+    const { likes, posts } = state;
+    if (!posts.has(postId)) {
+      return;
+    }
+    const newLikes = likes.add(postId);
+    setState((prev) => ({ ...prev, likes: newLikes }));
+  }, []);
+
+  // sorry, this is a hack, but I'm too tired to think through a better way
+  useEffect(() => {
+    setState((prev) => ({ ...prev, toggleLike }));
   }, []);
 
   return (
