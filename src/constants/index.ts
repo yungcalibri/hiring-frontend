@@ -27,4 +27,6 @@ export const alphabet = [
   "Zulu",
 ];
 
+export const MINUTES_IN_ONE_WEEK = 10080;
+
 export * from "./image";
