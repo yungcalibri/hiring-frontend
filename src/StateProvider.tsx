@@ -2,13 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 
 const noop = () => undefined;
 
-const AppContext = React.createContext({
-  posts: new Map(),
-  likes: new Set(),
-  loadPosts: noop,
-  loadingPosts: true,
-});
-
 const queryUrl = new URL("https://fakerapi.it/api/v1/custom");
 const queryParams = new URLSearchParams({
   image: "boolean",
@@ -36,14 +29,24 @@ const loadPosts = async () => {
   return true;
 };
 
+const AppContext = React.createContext({
+  posts: new Map(),
+  postOrder: [],
+  likes: new Set(),
+  loadPosts: noop,
+  loadingPosts: true,
+});
+
 export const StateProvider = (props: any) => {
   const [posts, setPosts] = useState(new Map());
+  const [postOrder, setPostOrder] = useState([]);
   const [likes, setLikes] = useState(new Set());
   const [loadingPosts, setLoadingPosts] = useState(true);
 
   const state = useMemo(
     () => ({
       posts,
+      postOrder,
       likes,
       loadPosts,
       loadingPosts,
