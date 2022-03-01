@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { diglett64, smad64, teapot64 } from "./constants";
+import { alphabet, diglett64, smad64, teapot64 } from "./constants";
 import { makePatp } from "./utilities";
 
 const noop = (..._params) => undefined;
@@ -13,6 +13,8 @@ const loadPosts = async () => {
   // construct query url
   const queryParams = new URLSearchParams({
     ["_quantity"]: "5",
+    // select a channel from the list
+    channelIndex: "number",
     hasImage: "boolean",
     // selects which of our three images will be applied
     imageSelector: "number",
@@ -47,8 +49,13 @@ const loadPosts = async () => {
     };
   });
 
+  const withChannel = withPatp.map((post: any) => {
+    const { channelIndex, ...data } = post;
+    return { ...data, channel: alphabet[channelIndex % 26] };
+  });
+
   // select image for applicable posts
-  const withImage = withPatp.map((post: any) => {
+  const withImage = withChannel.map((post: any) => {
     const { hasImage, imageSelector, ...data } = post;
     if (!hasImage) {
       return { ...data };
