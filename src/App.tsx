@@ -1,7 +1,7 @@
 import React, { useContext, FC } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { AppContext, StateProvider } from "./StateProvider";
-import { Box, Flex, Text } from "./components";
+import { Box, Feed, Flex, Post, Stack, Text } from "./components";
 import { Home } from "./layouts";
 import theme from "./theme";
 
@@ -71,23 +71,10 @@ export const App: FC<AppProps> = () => {
         <Home>
           <Box>
             <Text>Let's put the posts here.</Text>
+            <Feed />
           </Box>
-          <Flex justifyContent="center">
-            <LoadMoreButton>
-              <Text variant="body">Load Moar</Text>
-            </LoadMoreButton>
-          </Flex>
         </Home>
       </StateProvider>
     </ThemeProvider>
-  );
-};
-
-const LoadMoreButton = (props) => {
-  const { loadPosts } = useContext(AppContext);
-  return (
-    <button type="button" onClick={(_) => loadPosts()}>
-      {props.children}
-    </button>
   );
 };
