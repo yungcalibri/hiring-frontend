@@ -2,6 +2,7 @@ export * from "./Box";
 export * from "./Cluster";
 export * from "./Flex";
 export * from "./Image";
+export * from "./Post";
 export * from "./Text";
 export * from "./Ship";
 export * from "./Sigil";
