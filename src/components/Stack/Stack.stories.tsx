@@ -14,11 +14,15 @@ export default {
       },
     },
   },
-}
+};
 
 export const Basic = (args: any) => (
   <Stack {...args}>
-    {alphabet.slice(0, 8).map(entry => (<Box key={entry}><Text variant="body">{entry}</Text></Box>))}
+    {alphabet.slice(0, 8).map((entry) => (
+      <Box key={entry}>
+        <Text variant="body">{entry}</Text>
+      </Box>
+    ))}
   </Stack>
 );
 

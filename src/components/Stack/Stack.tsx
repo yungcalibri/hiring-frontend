@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export type StackProps = {
-  space: string
+  space: string;
 };
 
 export const Stack: any = styled.div<StackProps>`
@@ -14,7 +14,7 @@ export const Stack: any = styled.div<StackProps>`
   * add some top margin." */
 
   & > * + * {
-    margin-top: ${props => props.space};
+    margin-top: ${(props) => props.space};
   }
 
   /* Every-layout also suggests adding a boolean \`recursive\` prop which
@@ -29,4 +29,4 @@ export const Stack: any = styled.div<StackProps>`
 
 Stack.defaultProps = {
   space: "1rem",
-}
+};

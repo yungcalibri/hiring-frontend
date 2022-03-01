@@ -4,11 +4,9 @@ import { prefixes, suffixes } from "@tlon/phonemes-js";
 // arrays of two numbers, and constructs an @p
 export const makePatp = (syllables: Array<Array<number>>) => {
   return syllables
-  .map((pair) => {
-    const [pre, suf] = pair.map(n => n % 256);
-    return [
-      prefixes[pre],
-      suffixes[suf],
-    ].join('');
-  }).join('-');
+    .map((pair) => {
+      const [pre, suf] = pair.map((n) => n % 256);
+      return [prefixes[pre], suffixes[suf]].join("");
+    })
+    .join("-");
 };

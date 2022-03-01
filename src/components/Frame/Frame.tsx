@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export type FrameProps = {
-  ratio: string,
+  ratio: string;
 };
 
 export const Frame = styled.div<FrameProps>`
-  aspect-ratio: ${props => props.ratio};
+  aspect-ratio: ${(props) => props.ratio};
   overflow: hidden;
   display: flex;
   justify-content: center;
