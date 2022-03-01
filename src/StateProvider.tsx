@@ -80,7 +80,7 @@ export const StateProvider = (props: any) => {
     postOrder: [],
     likes: new Set(),
     toggleLike: noop,
-    loadPosts,
+    loadPosts: () => setState((prev) => ({ ...prev, page: prev.page + 1 })),
     loadingPosts: true,
   });
 
@@ -88,7 +88,7 @@ export const StateProvider = (props: any) => {
     let waiting = true;
 
     const { page, postOrder, posts } = state;
-    loadPosts(state.page).then((result) => {
+    loadPosts(page).then((result) => {
       if (!waiting) {
         setState((a) => ({ ...a, loadingPosts: false }));
       }
@@ -100,7 +100,6 @@ export const StateProvider = (props: any) => {
 
       setState((prev) => ({
         ...prev,
-        page: page + 1,
         posts: newPosts,
         postOrder: newPostOrder,
         loadingPosts: false,
@@ -109,7 +108,7 @@ export const StateProvider = (props: any) => {
     return () => {
       waiting = false;
     };
-  }, []);
+  }, [state.page]);
 
   const toggleLike = useCallback((postId) => {
     const { likes, posts } = state;
