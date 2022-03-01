@@ -17,7 +17,7 @@ const loadPosts = async () => {
     // selects which of our three images will be applied
     imageSelector: "number",
     minutesSincePosted: "number",
-    content: "text",
+    body: "text",
     id: "uuid",
     // user 'already liked' this post
     liked: "boolean",
