@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { sigil, reactRenderer } from "@tlon/sigil-js";
 import { Box, Flex, Frame, Sigil as GivenSigil, Stack, Text } from "../";
 
@@ -32,8 +32,8 @@ const PostDetails = (props: PostDetailsProps) => {
         <Sigil patp={props.patp} colors={["#232", "#FED"]} />
         <Box borderWidth="0" padding="0.5ch">
           <Stack space="0.5ch">
-            <Text variant="caption">~{props.patp}</Text>
-            <Text variant="caption">Time Since Posted</Text>
+            <Text variant="patp">~{props.patp}</Text>
+            <Text variant="detail">Time Since Posted</Text>
           </Stack>
         </Box>
       </Flex>
@@ -46,15 +46,19 @@ type SigilProps = {
   patp: string;
   colors?: [string, string];
 };
-const Sigil = (props: SigilProps) => (
-  <div style={{ maxWidth: "4rem", maxHeight: "4rem" }}>
-    <Box borderWidth="0" borderRadius="medium" padding="0">
-      {sigil({
-        patp: props.patp,
-        renderer: reactRenderer,
-        size: 48,
-        colors: props?.colors || ["#242", "white"],
-      })}
-    </Box>
-  </div>
-);
+const Sigil = (props: SigilProps) => {
+  const theme = useTheme();
+  return (
+    <div style={{ maxWidth: "4rem", maxHeight: "4rem" }}>
+      <Box borderWidth="0" borderRadius="medium" padding="0">
+        {sigil({
+          patp: props.patp,
+          renderer: reactRenderer,
+          class: "sigil",
+          size: 48,
+          colors: props?.colors || ["#242", "white"],
+        })}
+      </Box>
+    </div>
+  );
+};
