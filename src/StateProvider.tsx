@@ -58,7 +58,7 @@ export const StateProvider = (props: any) => {
     let waiting = true;
     loadPosts().then(() => {
       if (waiting) {
-        setPosts(new Map());
+        setPosts(posts);
       }
     });
     return () => {
