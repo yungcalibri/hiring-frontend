@@ -46,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
     border-width: var(--border-width, 0.125ch);
     border-color: var(--border-color, currentColor);
     border-radius: var(--border-radius, 0.25ch);
+    padding: var(--button-padding, 1ch);
     transition: var(--dtx);
 
     &:hover {
