@@ -6,6 +6,7 @@ import { formatMinutesSince } from "../../utilities";
 
 type PostProps = {
   body: string;
+  channel: string;
   id: string;
   image: string;
   liked: boolean;
@@ -36,6 +37,8 @@ const PostDetails = (props: PostDetailsProps) => {
             <Text variant="patp">~{props.patp}</Text>
             <Text variant="detail">
               {formatMinutesSince(props.minutesSincePosted)}
+              {" \u00B7 "}
+              <span style={{ fontWeight: "bold" }}>#{props.channel}</span>
             </Text>
           </Stack>
         </Box>
