@@ -14,6 +14,7 @@ export type TextProps = {
     | "caption"
     | "hint"
     | "label"
+    | "detail"
     | "patp"
     | "h1"
     | "h2"
