@@ -103,6 +103,11 @@ const textVariants = variant({
       fontFamily: "monospace",
       fontSize: 2,
     },
+    detail: {
+      ...defaultTextStyles,
+      fontSize: 2,
+      color: "text.placeholder",
+    },
   },
 });
 
