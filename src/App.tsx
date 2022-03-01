@@ -1,7 +1,7 @@
 import React, { useContext, FC } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { AppContext, StateProvider } from "./StateProvider";
-import { Box, Feed, Flex, Post, Stack, Text } from "./components";
+import { Box, Feed, Text } from "./components";
 import { Home } from "./layouts";
 import theme from "./theme";
 
