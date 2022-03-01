@@ -1,6 +1,7 @@
 export * from "./Box";
 export * from "./Cluster";
 export * from "./Flex";
+export * from "./Frame";
 export * from "./Image";
 export * from "./Post";
 export * from "./Text";
