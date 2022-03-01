@@ -1,5 +1,6 @@
-import React, { FC } from "react";
+import React, { useContext, FC } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { AppContext, StateProvider } from "./StateProvider";
 import { Box, Text } from "./components";
 import { Home } from "./layouts";
 import theme from "./theme";
@@ -65,17 +66,23 @@ export const App: FC<AppProps> = () => {
   return (
     <ThemeProvider theme={theme.light}>
       <GlobalStyle />
-      <Home>
-        <Box>
-          <Text>Let's put the posts here.</Text>
-        </Box>
-        <button
-          type="button"
-          className="transparent"
-          onClick={() => console.log("click")}>
-          click meeeeee
-        </button>
-      </Home>
+      <StateProvider>
+        <Home>
+          <Box>
+            <Text>Let's put the posts here.</Text>
+          </Box>
+          <LoadMoreButton>Load Moar</LoadMoreButton>
+        </Home>
+      </StateProvider>
     </ThemeProvider>
+  );
+};
+
+const LoadMoreButton = (props) => {
+  const { loadPosts } = useContext(AppContext);
+  return (
+    <button type="button" onClick={(_) => loadPosts()}>
+      {props.children}
+    </button>
   );
 };
