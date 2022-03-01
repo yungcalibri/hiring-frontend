@@ -2608,6 +2608,11 @@
     "@styled-system/core" "^5.1.2"
     "@styled-system/css" "^5.1.5"
 
+"@tlon/phonemes-js@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@tlon/phonemes-js/-/phonemes-js-1.0.0.tgz#045111818ffd2de23cfa242850b276fbb92c7f90"
+  integrity sha512-o8zLHidOYkn5So6BSKduueoJBKBK97Q9Puwo/9Orae1DDhEGE8HqYvbGNaT6VuIMiuK8WoB/FAx5hHUrnQ5GxQ==
+
 "@tlon/sigil-js@^1.4.5":
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/@tlon/sigil-js/-/sigil-js-1.4.5.tgz#10ab727e31cfab61ad5b2a8e439f2d72921fd8a0"
