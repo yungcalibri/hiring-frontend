@@ -2,6 +2,7 @@ import React from "react";
 import styled, { useTheme } from "styled-components";
 import { sigil, reactRenderer } from "@tlon/sigil-js";
 import { Box, Flex, Frame, Sigil as GivenSigil, Stack, Text } from "../";
+import { formatMinutesSince } from "../../utilities";
 
 type PostProps = {
   body: string;
@@ -33,7 +34,9 @@ const PostDetails = (props: PostDetailsProps) => {
         <Box borderWidth="0" padding="0.5ch">
           <Stack space="0.5ch">
             <Text variant="patp">~{props.patp}</Text>
-            <Text variant="detail">Time Since Posted</Text>
+            <Text variant="detail">
+              {formatMinutesSince(props.minutesSincePosted)}
+            </Text>
           </Stack>
         </Box>
       </Flex>
