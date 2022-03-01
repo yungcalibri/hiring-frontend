@@ -6,15 +6,13 @@ const noop = (..._params) => undefined;
 
 const images = [diglett64, smad64, teapot64];
 
-const loadPosts = async (page) => {
+const loadPosts = async () => {
   // enforced delay to show loading state
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   // construct query url
   const queryParams = new URLSearchParams({
-    quantity: "5",
-    // use the page number as a random seed to get consistent results
-    seed: page,
+    ["_quantity"]: "5",
     hasImage: "boolean",
     // selects which of our three images will be applied
     imageSelector: "number",
@@ -30,16 +28,15 @@ const loadPosts = async (page) => {
     syl1: "number",
     syl0: "number",
   });
-  const queryUrl = new URL(
-    "https://fakerapi.it/api/v1/custom?" + queryParams.toString()
-  );
+  const queryUrl =
+    "https://fakerapi.it/api/v1/custom?" + queryParams.toString();
 
   // fetch posts
-  const res = await fetch(queryUrl.toString());
+  const res = await fetch(queryUrl);
   const retrieved = await res.json();
 
   // derive patp from post user id
-  const withPatp = retrieved.map((raw: any) => {
+  const withPatp = retrieved.data.map((raw: any) => {
     const { syl3, syl2, syl1, syl0, ...data } = raw;
     return {
       ...data,
@@ -63,7 +60,7 @@ const loadPosts = async (page) => {
   return withImage;
 };
 
-const AppContext = React.createContext({
+export const AppContext = React.createContext({
   page: 0,
   posts: new Map(),
   postOrder: [],
@@ -87,8 +84,8 @@ export const StateProvider = (props: any) => {
   useEffect(() => {
     let waiting = true;
 
-    const { page, postOrder, posts } = state;
-    loadPosts(page).then((result) => {
+    const { postOrder, posts } = state;
+    loadPosts().then((result) => {
       if (!waiting) {
         setState((a) => ({ ...a, loadingPosts: false }));
       }
