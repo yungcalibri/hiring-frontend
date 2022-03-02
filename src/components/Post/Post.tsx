@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "styled-components";
 import { sigil, reactRenderer } from "@tlon/sigil-js";
 import { Box, Flex, Frame, Sigil as GivenSigil, Stack, Text } from "../";
+import { Icons } from "../";
 import { formatMinutesSince } from "../../utilities";
 
 type PostProps = {
@@ -46,9 +47,16 @@ const PostDetails = (props: PostDetailsProps) => {
           </Stack>
         </Box>
       </Flex>
-      {/* Like button */}
-      <button onClick={toggleLike} className="transparent fixed-width">
-        <Text variant="detail">{props.likes + (props.liked ? 1 : 0)}</Text>
+      <button
+        onClick={toggleLike}
+        className="transparent fixed-width like-button">
+        <Text
+          variant="detail"
+          color={props.liked ? "ui.intent.alert" : undefined}>
+          {/* alignment's fucked up but I don't want to spend two hours fixing it */}
+          {props.liked ? <Icons.HeartFilled /> : <Icons.Heart />}{" "}
+          {props.likes + (props.liked ? 1 : 0)}
+        </Text>
       </button>
     </Flex>
   );
