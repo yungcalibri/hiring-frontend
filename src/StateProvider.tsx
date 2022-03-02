@@ -21,8 +21,11 @@ const loadPosts = async () => {
     minutesSincePosted: "number",
     body: "text",
     id: "uuid",
+
     // user 'already liked' this post
     liked: "boolean",
+    // number of likes from other users
+    likes: "number",
 
     // syllables of the poster's @p
     syl3: "number",
@@ -64,7 +67,11 @@ const loadPosts = async () => {
     return { ...data, image: images[imageIndex] };
   });
 
-  return withImage;
+  return withImage.map((post) => ({
+    ...post,
+    likes: post.likes % 1000, // no more than 1000 likes
+    minutesSincePosted: post.minutesSincePosted % 10000, // no more than 10000 minutes since post
+  }));
 };
 
 export const AppContext = React.createContext({
