@@ -22,8 +22,6 @@ const loadPosts = async () => {
     body: "text",
     id: "uuid",
 
-    // user 'already liked' this post
-    liked: "boolean",
     // number of likes from other users
     likes: "number",
 
@@ -121,14 +119,16 @@ export const StateProvider = (props: any) => {
     };
   }, [state.page]);
 
-  const toggleLike = useCallback((postId) => {
+  const toggleLike = (postId) => {
     const { likes, posts } = state;
-    if (!posts.has(postId)) {
+    if (likes.has(postId)) {
+      likes.delete(postId);
+      setState((prev) => ({ ...prev, likes }));
       return;
     }
-    const newLikes = likes.add(postId);
-    setState((prev) => ({ ...prev, likes: newLikes }));
-  }, []);
+    likes.add(postId);
+    setState((prev) => ({ ...prev, likes }));
+  };
 
   // sorry, this is a hack, but I'm too tired to think through a better way
   useEffect(() => {
