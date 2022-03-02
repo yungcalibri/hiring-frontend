@@ -74,9 +74,7 @@ export const App: FC<AppProps> = () => {
       <GlobalStyle />
       <StateProvider>
         <Home>
-          <Box>
-            <Feed />
-          </Box>
+          <Feed />
         </Home>
       </StateProvider>
     </ThemeProvider>
