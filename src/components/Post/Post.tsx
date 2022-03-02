@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "styled-components";
 import { sigil, reactRenderer } from "@tlon/sigil-js";
 import { Box, Flex, Frame, Sigil as GivenSigil, Stack, Text } from "../";
 import { formatMinutesSince } from "../../utilities";
@@ -10,6 +10,8 @@ type PostProps = {
   id: string;
   image: string;
   liked: boolean;
+  likes: number;
+  toggleLike: Function;
   minutesSincePosted: number;
   patp: string;
 };
@@ -27,8 +29,9 @@ export const Post = (props: PostProps) => {
 type PostDetailsProps = PostProps;
 
 const PostDetails = (props: PostDetailsProps) => {
+  const toggleLike = () => props.toggleLike(props.id);
   return (
-    <Flex justifyContent="space-between">
+    <Flex justifyContent="space-between" alignItems="center">
       {/* Author, channel, time since post */}
       <Flex>
         <Sigil patp={props.patp} colors={["#232", "#FED"]} />
@@ -36,14 +39,17 @@ const PostDetails = (props: PostDetailsProps) => {
           <Stack space="0.5ch">
             <Text variant="patp">~{props.patp}</Text>
             <Text variant="detail">
-              {formatMinutesSince(props.minutesSincePosted)}
+              Via <span style={{ fontWeight: "bold" }}>#{props.channel}</span>
               {" \u00B7 "}
-              <span style={{ fontWeight: "bold" }}>#{props.channel}</span>
+              {formatMinutesSince(props.minutesSincePosted)}
             </Text>
           </Stack>
         </Box>
       </Flex>
       {/* Like button */}
+      <button onClick={toggleLike} className="transparent fixed-width">
+        <Text variant="detail">{props.likes + (props.liked ? 1 : 0)}</Text>
+      </button>
     </Flex>
   );
 };
