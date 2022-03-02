@@ -105,14 +105,13 @@ const textVariants = variant({
       fontSize: 2,
     },
     detail: {
-      ...defaultTextStyles,
       fontSize: 2,
       color: "text.placeholder",
     },
   },
 });
 
-export const Text = styled.p<TextProps>`
+export const Text = styled.span<TextProps>`
   ${textVariants}
   ${typographyFunctions};
   ${(props) =>
