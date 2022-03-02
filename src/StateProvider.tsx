@@ -79,7 +79,7 @@ export const AppContext = React.createContext({
   likes: new Set(),
   toggleLike: noop,
   loadPosts: noop,
-  loadingPosts: true,
+  loading: true,
 });
 
 export const StateProvider = (props: any) => {
@@ -90,7 +90,7 @@ export const StateProvider = (props: any) => {
     likes: new Set(),
     toggleLike: noop,
     loadPosts: () => setState((prev) => ({ ...prev, page: prev.page + 1 })),
-    loadingPosts: true,
+    loading: true,
   });
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export const StateProvider = (props: any) => {
     const { postOrder, posts } = state;
     loadPosts().then((result) => {
       if (!waiting) {
-        setState((a) => ({ ...a, loadingPosts: false }));
+        setState((a) => ({ ...a, loading: false }));
       }
 
       const newPostOrder = [...postOrder, ...result.map((p) => p.id)];
@@ -111,7 +111,7 @@ export const StateProvider = (props: any) => {
         ...prev,
         posts: newPosts,
         postOrder: newPostOrder,
-        loadingPosts: false,
+        loading: false,
       }));
     });
     return () => {
