@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "styled-components";
 import { sigil, reactRenderer } from "@tlon/sigil-js";
-import { Box, Flex, Frame, Sigil as GivenSigil, Stack, Text } from "../";
+import { Box, Flex, Frame, Image, Stack, Text } from "../";
 import { Icons } from "../";
 import { formatMinutesSince } from "../../utilities";
 
@@ -19,12 +19,13 @@ type PostProps = {
 
 export const Post = (props: PostProps) => {
   return (
-    <Box>
+    <Box borderRadius="medium">
       <Stack>
         <PostDetails {...props} />
         {/* post content */}
         <Text variant="body">{props.body}</Text>
         {/* labels */}
+        {props.image && <Image ratio="3/2" src={props.image} />}
       </Stack>
     </Box>
   );
