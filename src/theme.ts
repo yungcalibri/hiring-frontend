@@ -112,10 +112,10 @@ export const theme = {
           alert: "#F93939",
         },
         borderColor: "#8882", // #e3e3e3
-        borderHover: "8883",
+        borderHover: "#8883",
         input: {
-          borderColor: "8882",
-          borderHover: "8883",
+          borderColor: "#8882",
+          borderHover: "#8883",
         },
       },
       os: {
