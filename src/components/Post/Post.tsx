@@ -20,9 +20,12 @@ type PostProps = {
 export const Post = (props: PostProps) => {
   return (
     <Box>
-      <PostDetails {...props} />
-      {/* post content */}
-      {/* labels */}
+      <Stack>
+        <PostDetails {...props} />
+        {/* post content */}
+        <Text variant="body">{props.body}</Text>
+        {/* labels */}
+      </Stack>
     </Box>
   );
 };
