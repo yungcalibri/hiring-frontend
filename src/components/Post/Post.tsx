@@ -38,8 +38,13 @@ const PostDetails = (props: PostDetailsProps) => {
   return (
     <Flex justifyContent="space-between" alignItems="center">
       {/* Author, channel, time since post */}
-      <Flex>
-        <Sigil patp={props.patp} colors={["#232", "#FED"]} />
+      <Flex gap="1ch">
+        <Flex
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center">
+          <Sigil patp={props.patp} colors={["#232", "#FED"]} />
+        </Flex>
         <Box borderWidth="0" padding="0.5ch">
           <Stack space="0.5ch">
             <Text variant="patp">~{props.patp}</Text>
