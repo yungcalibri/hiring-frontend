@@ -3,7 +3,7 @@ import { AppContext } from "../../StateProvider";
 import { Flex, Post, Stack, Text } from "../";
 
 export const Feed = (props) => {
-  const { likes, loadPosts, postOrder, posts, toggleLike } =
+  const { likes, loadPosts, loading, postOrder, posts, toggleLike } =
     useContext(AppContext);
   return (
     <Stack>
@@ -16,8 +16,8 @@ export const Feed = (props) => {
         />
       ))}
       <Flex justifyContent="center">
-        <button type="button" onClick={() => loadPosts()}>
-          <Text variant="body">Load More</Text>
+        <button type="button" disabled={loading} onClick={() => loadPosts()}>
+          <Text variant="body">{loading ? "Loading" : "Load More"}</Text>
         </button>
       </Flex>
     </Stack>
