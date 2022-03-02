@@ -46,7 +46,8 @@ const GlobalStyle = createGlobalStyle`
     border-width: var(--border-width, 0.125ch);
     border-color: var(--border-color, currentColor);
     border-radius: var(--border-radius, 0.25ch);
-    padding: var(--button-padding, 1ch);
+    padding-inline: var(--button-padding-inline, 1ch);
+    padding-block: var(--button-padding-block, 0.5ch);
     transition: var(--dtx);
 
     &:hover {
@@ -59,6 +60,9 @@ const GlobalStyle = createGlobalStyle`
     &.transparent {
       --button-background: transparent;
       --border-width: 0.25ch;
+    }
+    &.fixed-width {
+      min-width: 8ch;
     }
   }
 `;
