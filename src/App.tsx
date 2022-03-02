@@ -74,7 +74,6 @@ export const App: FC<AppProps> = () => {
       <StateProvider>
         <Home>
           <Box>
-            <Text>Let's put the posts here.</Text>
             <Feed />
           </Box>
         </Home>
